@@ -4,13 +4,16 @@ import {
   Mail,
   Download,
   MapPin,
-  Briefcase,
   Award,
+  Briefcase,
   Server,
   Cloud,
   ShieldCheck,
   Rocket,
+  Boxes,
 } from "lucide-react";
+
+import { motion } from "framer-motion";
 
 export default function App() {
   const skills = [
@@ -38,30 +41,33 @@ export default function App() {
     "AZ-900",
     "AI-900",
     "DP-900",
-    "Terraform Associate Training",
+    "Terraform Associate",
     "CKA Training",
   ];
 
   return (
-    <div className="bg-[#030712] text-white min-h-screen scroll-smooth">
+    <div className="bg-[#020617] text-white overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(139,92,246,0.25),transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.15),transparent_25%)]" />
+
       {/* NAVBAR */}
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-black/40 border-b border-slate-800 px-6 md:px-16 py-5 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-violet-400">
           Suyog Kumawat
         </h1>
 
-        <div className="hidden md:flex gap-8 text-sm text-slate-300">
-          <a href="#about" className="hover:text-violet-400">About</a>
-          <a href="#skills" className="hover:text-violet-400">Skills</a>
-          <a href="#projects" className="hover:text-violet-400">Projects</a>
-          <a href="#certifications" className="hover:text-violet-400">Certifications</a>
-          <a href="#contact" className="hover:text-violet-400">Contact</a>
+        <div className="hidden md:flex gap-8 text-slate-300">
+          <a href="#about" className="hover:text-violet-400 transition">About</a>
+          <a href="#skills" className="hover:text-violet-400 transition">Skills</a>
+          <a href="#projects" className="hover:text-violet-400 transition">Projects</a>
+          <a href="#experience" className="hover:text-violet-400 transition">Experience</a>
+          <a href="#contact" className="hover:text-violet-400 transition">Contact</a>
         </div>
 
         <a
           href="/resume.pdf"
           download
-          className="hidden md:flex items-center gap-2 bg-violet-600 hover:bg-violet-700 transition px-5 py-3 rounded-xl"
+          className="flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-500 hover:scale-105 transition px-5 py-3 rounded-xl font-medium"
         >
           <Download size={18} />
           Resume
@@ -69,70 +75,96 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section className="px-6 md:px-20 py-20 bg-gradient-to-r from-[#020617] via-[#0f172a] to-[#1e1b4b]">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          <div>
-            <p className="text-violet-400 text-xl mb-3">Hi, I'm</p>
+      <section className="px-6 md:px-20 py-24 min-h-screen flex items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-center w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-violet-400 text-2xl mb-4">Hi, I'm</p>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-              Suyog Kumawat
+            <h1 className="text-6xl md:text-8xl font-black leading-none">
+              Suyog
+              <br />
+              Kumawat
             </h1>
 
-            <h2 className="text-3xl md:text-4xl mt-5 font-semibold text-violet-400">
+            <h2 className="mt-6 text-3xl md:text-5xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 text-transparent bg-clip-text">
               Cloud DevOps Engineer
             </h2>
 
             <p className="mt-8 text-slate-300 text-lg leading-9 max-w-2xl">
-              AWS-certified DevOps Engineer with 3.5+ years of experience in
-              Kubernetes, Terraform, GitHub Actions, ArgoCD, CI/CD automation,
-              observability, and enterprise-grade cloud infrastructure.
+              AWS-certified DevOps Engineer with 3.5+ years of experience in Kubernetes,
+              Terraform, GitHub Actions, ArgoCD, CI/CD automation, observability,
+              enterprise infrastructure and cloud-native platforms.
             </p>
 
             <div className="flex flex-wrap gap-5 mt-10">
               <a
                 href="#projects"
-                className="bg-violet-600 hover:bg-violet-700 transition px-7 py-4 rounded-xl font-semibold"
+                className="bg-gradient-to-r from-violet-600 to-purple-500 hover:scale-105 transition px-8 py-4 rounded-2xl font-semibold shadow-xl shadow-violet-500/20"
               >
                 View Projects
               </a>
 
               <a
-                href="/resume.pdf"
-                download
-                className="border border-violet-500 hover:bg-violet-500/10 transition px-7 py-4 rounded-xl font-semibold"
+                href="mailto:suyogkumawat21@gmail.com"
+                className="border border-violet-500 hover:bg-violet-500/10 transition px-8 py-4 rounded-2xl"
               >
-                Download Resume
+                Contact Me
               </a>
             </div>
 
             <div className="flex gap-6 mt-10">
               <a href="https://github.com/suyogkumawat" target="_blank">
-                <Github className="hover:text-violet-400" />
+                <Github className="hover:text-violet-400 hover:scale-110 transition" />
               </a>
 
-              <a
-                href="https://www.linkedin.com/in/suyogkumawat/"
-                target="_blank"
-              >
-                <Linkedin className="hover:text-violet-400" />
+              <a href="https://www.linkedin.com/in/suyogkumawat/" target="_blank">
+                <Linkedin className="hover:text-violet-400 hover:scale-110 transition" />
               </a>
 
               <a href="mailto:suyogkumawat21@gmail.com">
-                <Mail className="hover:text-violet-400" />
+                <Mail className="hover:text-violet-400 hover:scale-110 transition" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center">
-            <div className="bg-slate-900 border border-violet-500/20 rounded-[30px] p-10 shadow-2xl shadow-violet-500/10">
-              <Cloud size={240} className="text-violet-400" />
+          {/* RIGHT HERO */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center"
+          >
+            <div className="absolute w-[500px] h-[500px] bg-violet-500/20 blur-[120px] rounded-full" />
+
+            <div className="relative bg-[#0f172a]/80 border border-violet-500/20 rounded-[40px] p-16 shadow-2xl shadow-violet-500/20">
+              <Cloud size={220} className="text-violet-400" />
+
+              <div className="absolute -top-5 -left-5 bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4">
+                AWS
+              </div>
+
+              <div className="absolute top-10 -right-8 bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4">
+                Kubernetes
+              </div>
+
+              <div className="absolute bottom-0 -left-8 bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4">
+                Terraform
+              </div>
+
+              <div className="absolute -bottom-6 right-0 bg-slate-900 border border-slate-700 rounded-2xl px-5 py-4">
+                ArgoCD
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="px-6 md:px-20 py-10 grid md:grid-cols-5 gap-6 bg-[#020617]">
+      <section className="px-6 md:px-20 py-10 grid md:grid-cols-5 gap-6">
         {[
           ["3.5+", "Years Experience"],
           ["200+", "K8s Deployments"],
@@ -142,104 +174,106 @@ export default function App() {
         ].map(([value, label]) => (
           <div
             key={label}
-            className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center"
+            className="bg-[#0f172a]/70 border border-slate-800 rounded-3xl p-8 text-center backdrop-blur-md"
           >
-            <h3 className="text-4xl font-bold text-violet-400">{value}</h3>
-            <p className="mt-2 text-slate-400">{label}</p>
+            <h3 className="text-5xl font-black text-violet-400">{value}</h3>
+            <p className="mt-3 text-slate-400">{label}</p>
           </div>
         ))}
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="px-6 md:px-20 py-20">
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-10">
-          <h2 className="text-4xl font-bold text-violet-400 mb-8">
-            About Me
-          </h2>
+      <section id="about" className="px-6 md:px-20 py-24">
+        <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[40px] p-12 backdrop-blur-md">
+          <h2 className="text-5xl font-bold text-violet-400 mb-10">About Me</h2>
 
           <p className="text-slate-300 text-lg leading-10">
-            I specialize in building scalable and secure cloud-native platforms
-            across AWS and hybrid cloud environments. I have hands-on experience
-            managing Kubernetes platforms including EKS and OpenShift,
-            implementing GitOps pipelines using ArgoCD and FluxCD, automating
-            infrastructure provisioning with Terraform and Helm, and building
-            enterprise-grade observability solutions using Prometheus, Grafana,
-            and CloudWatch.
+            I specialize in designing scalable and secure cloud-native platforms
+            using AWS, Kubernetes, Terraform, GitOps and CI/CD automation.
+            I have hands-on experience managing enterprise EKS environments,
+            implementing observability stacks, automating deployments,
+            improving infrastructure reliability and mentoring engineering teams.
           </p>
         </div>
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="px-6 md:px-20 py-20 bg-[#020617]">
-        <h2 className="text-4xl font-bold text-violet-400 mb-10">Skills</h2>
+      <section id="skills" className="px-6 md:px-20 py-24">
+        <h2 className="text-5xl font-bold text-violet-400 mb-14">Skills</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {skills.map((skill) => (
-            <div
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               key={skill}
-              className="bg-slate-900 hover:border-violet-500 transition border border-slate-800 rounded-2xl p-5 text-center"
+              className="bg-[#0f172a]/70 border border-slate-800 rounded-3xl p-6 text-center backdrop-blur-md hover:border-violet-500 transition"
             >
               {skill}
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className="px-6 md:px-20 py-20">
-        <h2 className="text-4xl font-bold text-violet-400 mb-12">
+      <section id="projects" className="px-6 md:px-20 py-24">
+        <h2 className="text-5xl font-bold text-violet-400 mb-14">
           Featured Projects
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-violet-500 transition">
-            <Server className="text-violet-400 mb-5" size={42} />
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 backdrop-blur-md"
+          >
+            <Server className="text-violet-400 mb-6" size={50} />
 
-            <h3 className="text-2xl font-semibold mb-4">
+            <h3 className="text-3xl font-bold mb-5">
               EKS Automation Platform
             </h3>
 
-            <p className="text-slate-300 leading-8">
+            <p className="text-slate-300 leading-9">
               Automated Kubernetes infrastructure provisioning using Terraform,
-              Helm Charts, GitHub Actions and Kustomize for multi-environment
-              deployments.
+              Helm, GitHub Actions and Kustomize.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-violet-500 transition">
-            <ShieldCheck className="text-violet-400 mb-5" size={42} />
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 backdrop-blur-md"
+          >
+            <ShieldCheck className="text-violet-400 mb-6" size={50} />
 
-            <h3 className="text-2xl font-semibold mb-4">
+            <h3 className="text-3xl font-bold mb-5">
               Secure Code Migration
             </h3>
 
-            <p className="text-slate-300 leading-8">
-              Architected secure cross-network migrations for 15+ enterprise
-              repositories using GitHub Actions and SonarQube.
+            <p className="text-slate-300 leading-9">
+              Architected secure cross-network repository migrations using GitHub Actions,
+              SonarQube and enterprise DevSecOps practices.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-violet-500 transition">
-            <Rocket className="text-violet-400 mb-5" size={42} />
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 backdrop-blur-md"
+          >
+            <Rocket className="text-violet-400 mb-6" size={50} />
 
-            <h3 className="text-2xl font-semibold mb-4">
+            <h3 className="text-3xl font-bold mb-5">
               Airflow on EKS
             </h3>
 
-            <p className="text-slate-300 leading-8">
+            <p className="text-slate-300 leading-9">
               Migrated Apache Airflow workloads from Docker to AWS EKS,
-              improving execution speed, resilience and observability.
+              improving resilience, scalability and deployment automation.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CERTIFICATIONS */}
-      <section
-        id="certifications"
-        className="px-6 md:px-20 py-20 bg-[#020617]"
-      >
-        <h2 className="text-4xl font-bold text-violet-400 mb-10">
+      <section className="px-6 md:px-20 py-24">
+        <h2 className="text-5xl font-bold text-violet-400 mb-14">
           Certifications
         </h2>
 
@@ -247,7 +281,7 @@ export default function App() {
           {certifications.map((cert) => (
             <div
               key={cert}
-              className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4"
+              className="bg-[#0f172a]/70 border border-slate-800 rounded-3xl p-6 flex items-center gap-5 backdrop-blur-md"
             >
               <Award className="text-violet-400" />
               {cert}
@@ -257,65 +291,63 @@ export default function App() {
       </section>
 
       {/* EXPERIENCE */}
-      <section className="px-6 md:px-20 py-20">
-        <h2 className="text-4xl font-bold text-violet-400 mb-10">
+      <section id="experience" className="px-6 md:px-20 py-24">
+        <h2 className="text-5xl font-bold text-violet-400 mb-14">
           Experience
         </h2>
 
         <div className="space-y-8">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 backdrop-blur-md">
+            <div className="flex items-center gap-4 mb-5">
               <Briefcase className="text-violet-400" />
-              <h3 className="text-2xl font-semibold">
+
+              <h3 className="text-3xl font-bold">
                 Associate Consultant DevOps — ZS Associates
               </h3>
             </div>
 
-            <p className="text-slate-300 leading-8">
-              Working on enterprise AWS cloud platforms, secure repository
-              migrations, Terraform frameworks, EKS operations and cloud-native
-              DevOps architectures for pharmaceutical clients.
+            <p className="text-slate-300 leading-9">
+              Leading enterprise cloud modernization, Terraform automation,
+              secure repository migrations, Kubernetes operations and DevOps
+              platform engineering.
             </p>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <Briefcase className="text-violet-400" />
-              <h3 className="text-2xl font-semibold">
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 backdrop-blur-md">
+            <div className="flex items-center gap-4 mb-5">
+              <Boxes className="text-violet-400" />
+
+              <h3 className="text-3xl font-bold">
                 Cloud DevOps Engineer — Cognizant
               </h3>
             </div>
 
-            <p className="text-slate-300 leading-8">
-              Managed 200+ Kubernetes deployments across 15+ EKS clusters,
-              implemented GitOps automation, observability stacks and CI/CD
-              platforms for enterprise healthcare systems.
+            <p className="text-slate-300 leading-9">
+              Managed enterprise EKS platforms, GitOps workflows,
+              observability stacks and CI/CD automation for healthcare systems.
             </p>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section
-        id="contact"
-        className="px-6 md:px-20 py-20 bg-gradient-to-r from-[#0f172a] to-[#1e1b4b]"
-      >
-        <h2 className="text-4xl font-bold text-violet-400 mb-12 text-center">
+      <section id="contact" className="px-6 md:px-20 py-24">
+        <h2 className="text-5xl font-bold text-violet-400 mb-14 text-center">
           Let's Connect
         </h2>
 
         <div className="grid md:grid-cols-4 gap-6">
-          <div className="bg-slate-900/70 border border-slate-700 rounded-3xl p-8 text-center">
-            <Mail className="mx-auto text-violet-400 mb-4" size={36} />
-            <h3 className="font-semibold text-xl mb-2">Email</h3>
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 text-center backdrop-blur-md">
+            <Mail className="mx-auto text-violet-400 mb-5" size={40} />
+            <h3 className="font-bold text-2xl mb-3">Email</h3>
             <p className="text-slate-300 break-all">
               suyogkumawat21@gmail.com
             </p>
           </div>
 
-          <div className="bg-slate-900/70 border border-slate-700 rounded-3xl p-8 text-center">
-            <Linkedin className="mx-auto text-violet-400 mb-4" size={36} />
-            <h3 className="font-semibold text-xl mb-2">LinkedIn</h3>
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 text-center backdrop-blur-md">
+            <Linkedin className="mx-auto text-violet-400 mb-5" size={40} />
+            <h3 className="font-bold text-2xl mb-3">LinkedIn</h3>
             <a
               href="https://www.linkedin.com/in/suyogkumawat/"
               target="_blank"
@@ -325,9 +357,9 @@ export default function App() {
             </a>
           </div>
 
-          <div className="bg-slate-900/70 border border-slate-700 rounded-3xl p-8 text-center">
-            <Github className="mx-auto text-violet-400 mb-4" size={36} />
-            <h3 className="font-semibold text-xl mb-2">GitHub</h3>
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 text-center backdrop-blur-md">
+            <Github className="mx-auto text-violet-400 mb-5" size={40} />
+            <h3 className="font-bold text-2xl mb-3">GitHub</h3>
             <a
               href="https://github.com/suyogkumawat"
               target="_blank"
@@ -337,16 +369,16 @@ export default function App() {
             </a>
           </div>
 
-          <div className="bg-slate-900/70 border border-slate-700 rounded-3xl p-8 text-center">
-            <MapPin className="mx-auto text-violet-400 mb-4" size={36} />
-            <h3 className="font-semibold text-xl mb-2">Location</h3>
+          <div className="bg-[#0f172a]/70 border border-slate-800 rounded-[35px] p-10 text-center backdrop-blur-md">
+            <MapPin className="mx-auto text-violet-400 mb-5" size={40} />
+            <h3 className="font-bold text-2xl mb-3">Location</h3>
             <p className="text-slate-300">Pune, India</p>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="text-center py-8 border-t border-slate-800 text-slate-500">
+      <footer className="border-t border-slate-800 py-10 text-center text-slate-500">
         © 2026 Suyog Kumawat — Cloud DevOps Engineer
       </footer>
     </div>
